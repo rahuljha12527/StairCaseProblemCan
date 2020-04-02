@@ -1,0 +1,55 @@
+
+public class Solution {
+	
+    
+public static long StairCase(int n,long dp[]){
+    
+    if(n==1 || n==2){
+        return n;
+    }
+    
+    if(n==3){
+        return 4;
+    }
+    
+    long ans1,ans2,ans3;
+    
+    if(dp[n-1]==-1){
+        ans1=StairCase(n-1,dp);
+        dp[n-1]=ans1;
+    }else{
+        ans1=dp[n-1];
+    }
+    
+    if(dp[n-2]==-1){
+        ans2=StairCase(n-2,dp);
+        dp[n-2]=ans2;
+    }else{
+        ans2=dp[n-2];
+    }
+    
+    if(dp[n-3]==-1){
+        ans3=StairCase(n-3,dp);
+        dp[n-3]=ans3;
+    }
+    else{
+        ans3=dp[n-3];
+    }
+    
+    long myAns=ans1+ans2+ans3;
+    
+    return myAns;
+}    
+    
+		
+public static long staircase(int n){
+	long dp[]=new long[n+1];
+    
+    for(int i=0;i<dp.length;i++){
+        dp[i]=-1;
+    }
+    long ans=StairCase(n,dp);
+    return ans;
+}
+	
+}
